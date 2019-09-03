@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4tO-pY-Xr6">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Upload-->
+        <scene sceneID="7fP-Ki-EQj">
+            <objects>
+                <viewController id="4tO-pY-Xr6" customClass="UploadViewController" customModule="MyFileNavigator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qp4-se-oei">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SV0-Uf-dhY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UploadTableViewCellIdentifier" id="wKF-IU-piB" customClass="UploadTableViewCell" customModule="MyFileNavigator" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wKF-IU-piB" id="0cg-HS-v7B">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZy-ul-eLX">
+                                                    <rect key="frame" x="16" y="0.0" width="382" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="rF5-wV-p0S"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anj-25-Nym">
+                                                    <rect key="frame" x="16" y="40" width="382" height="1"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="moL-2U-Qra"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="anj-25-Nym" firstAttribute="top" secondItem="cZy-ul-eLX" secondAttribute="bottom" id="AlS-lL-Ozl"/>
+                                                <constraint firstAttribute="trailing" secondItem="anj-25-Nym" secondAttribute="trailing" constant="16" id="Frp-tO-Xsf"/>
+                                                <constraint firstItem="cZy-ul-eLX" firstAttribute="top" secondItem="0cg-HS-v7B" secondAttribute="top" id="Ppg-MM-qeg"/>
+                                                <constraint firstAttribute="bottom" secondItem="anj-25-Nym" secondAttribute="bottom" id="Tfd-qc-pLT"/>
+                                                <constraint firstItem="anj-25-Nym" firstAttribute="leading" secondItem="0cg-HS-v7B" secondAttribute="leading" constant="16" id="fFg-af-nEO"/>
+                                                <constraint firstItem="cZy-ul-eLX" firstAttribute="leading" secondItem="0cg-HS-v7B" secondAttribute="leading" constant="16" id="gbM-sa-b2z"/>
+                                                <constraint firstAttribute="trailing" secondItem="cZy-ul-eLX" secondAttribute="trailing" constant="16" id="lj6-vD-sDF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="uploadLabel" destination="cZy-ul-eLX" id="JAP-gA-rTx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="4tO-pY-Xr6" id="40F-kI-1Cc"/>
+                                    <outlet property="delegate" destination="4tO-pY-Xr6" id="h15-rj-mJS"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="SV0-Uf-dhY" firstAttribute="bottom" secondItem="Dld-95-M13" secondAttribute="bottom" id="DK5-75-a0g"/>
+                            <constraint firstItem="SV0-Uf-dhY" firstAttribute="trailing" secondItem="Dld-95-M13" secondAttribute="trailing" id="HZl-Sn-HXr"/>
+                            <constraint firstItem="SV0-Uf-dhY" firstAttribute="top" secondItem="Dld-95-M13" secondAttribute="top" id="S6P-nV-hef"/>
+                            <constraint firstItem="SV0-Uf-dhY" firstAttribute="leading" secondItem="Dld-95-M13" secondAttribute="leading" id="pKA-5b-EOb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Dld-95-M13"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Upload" id="pmL-fA-9Fm"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5aE-1P-VlG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="711.59420289855075" y="423.88392857142856"/>
+        </scene>
+    </scenes>
+</document>

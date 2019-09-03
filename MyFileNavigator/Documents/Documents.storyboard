@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OpV-cM-aBR">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Documents-->
+        <scene sceneID="RJO-6o-r7v">
+            <objects>
+                <viewController id="OpV-cM-aBR" customClass="DocumentsViewController" customModule="MyFileNavigator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FI7-bk-Ecr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dMd-V0-wsJ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DownloadsTableViewCellIdentifier" id="fxa-J7-Htl" customClass="DocumentTableViewCell" customModule="MyFileNavigator" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fxa-J7-Htl" id="Epw-Z8-jKw">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mot-sP-NOO">
+                                                    <rect key="frame" x="16" y="0.0" width="382" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="FxV-tD-Has"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6le-SN-9gJ">
+                                                    <rect key="frame" x="16" y="40" width="382" height="1"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="4Ob-UX-mVs"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Mot-sP-NOO" secondAttribute="trailing" constant="16" id="5Md-Wc-vo1"/>
+                                                <constraint firstItem="Mot-sP-NOO" firstAttribute="leading" secondItem="Epw-Z8-jKw" secondAttribute="leading" constant="16" id="Egy-Yn-LhT"/>
+                                                <constraint firstItem="Mot-sP-NOO" firstAttribute="top" secondItem="Epw-Z8-jKw" secondAttribute="top" id="FEC-Ct-0fA"/>
+                                                <constraint firstItem="6le-SN-9gJ" firstAttribute="leading" secondItem="Epw-Z8-jKw" secondAttribute="leading" constant="16" id="Yh9-OA-lv2"/>
+                                                <constraint firstItem="6le-SN-9gJ" firstAttribute="top" secondItem="Mot-sP-NOO" secondAttribute="bottom" id="btS-yi-hwx"/>
+                                                <constraint firstAttribute="trailing" secondItem="6le-SN-9gJ" secondAttribute="trailing" constant="16" id="sy5-ac-xio"/>
+                                                <constraint firstAttribute="bottom" secondItem="6le-SN-9gJ" secondAttribute="bottom" id="yPY-py-2wy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="documentLabel" destination="Mot-sP-NOO" id="pbI-kw-THt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="OpV-cM-aBR" id="B6P-KM-7Hh"/>
+                                    <outlet property="delegate" destination="OpV-cM-aBR" id="xpl-gR-Acf"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="dMd-V0-wsJ" firstAttribute="leading" secondItem="YFT-78-JIr" secondAttribute="leading" id="Io2-En-Bic"/>
+                            <constraint firstItem="dMd-V0-wsJ" firstAttribute="top" secondItem="YFT-78-JIr" secondAttribute="top" id="NHR-o0-FiT"/>
+                            <constraint firstItem="YFT-78-JIr" firstAttribute="bottom" secondItem="dMd-V0-wsJ" secondAttribute="bottom" id="Tpg-7I-2BY"/>
+                            <constraint firstItem="YFT-78-JIr" firstAttribute="trailing" secondItem="dMd-V0-wsJ" secondAttribute="trailing" id="Vlo-d1-pwk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YFT-78-JIr"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Documents" id="8xM-VM-p1i"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Beb-7I-0ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="711.59420289855075" y="-224.33035714285714"/>
+        </scene>
+    </scenes>
+</document>
