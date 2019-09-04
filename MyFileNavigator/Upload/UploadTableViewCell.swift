@@ -9,7 +9,7 @@
 import UIKit
 
 class UploadTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var uploadLabel: UILabel!
     
     var upload: Upload!

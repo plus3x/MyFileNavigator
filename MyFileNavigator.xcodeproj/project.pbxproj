@@ -15,6 +15,10 @@
 		B6500BAB2315295000E43B1A /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6500BAA2315295000E43B1A /* Upload.swift */; };
 		B6500BAD23157BBC00E43B1A /* Documents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6500BAC23157BBC00E43B1A /* Documents.storyboard */; };
 		B6500BAF23157CE200E43B1A /* Upload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6500BAE23157CE200E43B1A /* Upload.storyboard */; };
+		B6500BB1231F265300E43B1A /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = B6500BB0231F265300E43B1A /* Gemfile */; };
+		B6500BB3231F271600E43B1A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B6500BB2231F271600E43B1A /* Podfile */; };
+		B6500BB8231F3BED00E43B1A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B6500BB7231F3BED00E43B1A /* .swiftlint.yml */; };
+		B6500BBA231F3C7600E43B1A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B6500BB9231F3C7600E43B1A /* .gitignore */; };
 		B6DCF4CB23151CF5006EE0D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCF4CA23151CF5006EE0D8 /* AppDelegate.swift */; };
 		B6DCF4D023151CF5006EE0D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6DCF4CE23151CF5006EE0D8 /* Main.storyboard */; };
 		B6DCF4D223151CF7006EE0D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6DCF4D123151CF7006EE0D8 /* Assets.xcassets */; };
@@ -22,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4CB69BCAC6BDB5EA54535F83 /* Pods-MyFileNavigator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFileNavigator.debug.xcconfig"; path = "Target Support Files/Pods-MyFileNavigator/Pods-MyFileNavigator.debug.xcconfig"; sourceTree = "<group>"; };
+		B52D3AF9F2C6FDE0EDD0B3CB /* Pods-MyFileNavigator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFileNavigator.release.xcconfig"; path = "Target Support Files/Pods-MyFileNavigator/Pods-MyFileNavigator.release.xcconfig"; sourceTree = "<group>"; };
 		B6500B9C2315228F00E43B1A /* DocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsViewController.swift; sourceTree = "<group>"; };
 		B6500B9E231525C900E43B1A /* DocumentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTableViewCell.swift; sourceTree = "<group>"; };
 		B6500BA1231526DC00E43B1A /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
@@ -30,6 +36,10 @@
 		B6500BAA2315295000E43B1A /* Upload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
 		B6500BAC23157BBC00E43B1A /* Documents.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Documents.storyboard; sourceTree = "<group>"; };
 		B6500BAE23157CE200E43B1A /* Upload.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Upload.storyboard; sourceTree = "<group>"; };
+		B6500BB0231F265300E43B1A /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B6500BB2231F271600E43B1A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B6500BB7231F3BED00E43B1A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		B6500BB9231F3C7600E43B1A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B6DCF4C723151CF5006EE0D8 /* MyFileNavigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFileNavigator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6DCF4CA23151CF5006EE0D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6DCF4CF23151CF5006EE0D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,6 +59,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30EBAEFDA37C1F6ED9DF412C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4CB69BCAC6BDB5EA54535F83 /* Pods-MyFileNavigator.debug.xcconfig */,
+				B52D3AF9F2C6FDE0EDD0B3CB /* Pods-MyFileNavigator.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B6500BA0231526BD00E43B1A /* Documents */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,8 +93,13 @@
 		B6DCF4BE23151CF5006EE0D8 = {
 			isa = PBXGroup;
 			children = (
+				B6500BB7231F3BED00E43B1A /* .swiftlint.yml */,
+				B6500BB9231F3C7600E43B1A /* .gitignore */,
+				B6500BB0231F265300E43B1A /* Gemfile */,
+				B6500BB2231F271600E43B1A /* Podfile */,
 				B6DCF4C923151CF5006EE0D8 /* MyFileNavigator */,
 				B6DCF4C823151CF5006EE0D8 /* Products */,
+				30EBAEFDA37C1F6ED9DF412C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,9 +132,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6DCF4D923151CF7006EE0D8 /* Build configuration list for PBXNativeTarget "MyFileNavigator" */;
 			buildPhases = (
+				05E795427726F7BD36B4AE57 /* [CP] Check Pods Manifest.lock */,
 				B6DCF4C323151CF5006EE0D8 /* Sources */,
 				B6DCF4C423151CF5006EE0D8 /* Frameworks */,
 				B6DCF4C523151CF5006EE0D8 /* Resources */,
+				B6500BB4231F2A4700E43B1A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -159,15 +185,61 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6500BB8231F3BED00E43B1A /* .swiftlint.yml in Resources */,
+				B6500BB1231F265300E43B1A /* Gemfile in Resources */,
 				B6500BAF23157CE200E43B1A /* Upload.storyboard in Resources */,
 				B6DCF4D523151CF7006EE0D8 /* LaunchScreen.storyboard in Resources */,
 				B6500BAD23157BBC00E43B1A /* Documents.storyboard in Resources */,
 				B6DCF4D223151CF7006EE0D8 /* Assets.xcassets in Resources */,
+				B6500BB3231F271600E43B1A /* Podfile in Resources */,
+				B6500BBA231F3C7600E43B1A /* .gitignore in Resources */,
 				B6DCF4D023151CF5006EE0D8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05E795427726F7BD36B4AE57 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyFileNavigator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6500BB4231F2A4700E43B1A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B6DCF4C323151CF5006EE0D8 /* Sources */ = {
@@ -324,6 +396,7 @@
 		};
 		B6DCF4DA23151CF7006EE0D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CB69BCAC6BDB5EA54535F83 /* Pods-MyFileNavigator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -342,6 +415,7 @@
 		};
 		B6DCF4DB23151CF7006EE0D8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B52D3AF9F2C6FDE0EDD0B3CB /* Pods-MyFileNavigator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -9,7 +9,6 @@
 import UIKit
 
 class UploadViewController: UIViewController {
-
     var uploads = [
         Upload(name: "Upload Doc1", link: "SomeLink"),
         Upload(name: "Upload Doc2", link: "SomeLink"),
@@ -17,7 +16,6 @@ class UploadViewController: UIViewController {
         Upload(name: "Upload Doc4", link: "SomeLink"),
         Upload(name: "Upload Doc5", link: "SomeLink"),
     ]
-
 }
 
 extension UploadViewController: UITableViewDelegate, UITableViewDataSource {
@@ -32,6 +30,4 @@ extension UploadViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-    
 }
