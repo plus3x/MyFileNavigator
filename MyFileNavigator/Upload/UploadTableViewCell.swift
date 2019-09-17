@@ -9,15 +9,24 @@
 import UIKit
 
 class UploadTableViewCell: UITableViewCell {
-
+    static let identifier = "UploadTableViewCellIdentifier"
+    
     @IBOutlet weak var uploadLabel: UILabel!
+    @IBOutlet weak var progressBar: UIProgressView!
     
-    var upload: Upload!
+    var document: Document!
 
-    func configure(with upload: Upload) {
-        self.upload = upload
+    func configure(with document: Document) {
+        self.document = document
         
-        uploadLabel.text = upload.name
+        uploadLabel.text = document.name
+        progressBar.observedProgress = document.progress
+        
+        switch document.state {
+        case .downloadable, .downloaded:
+            progressBar.isHidden = true
+        case .downloading:
+            progressBar.isHidden = false
+        }
     }
-    
 }

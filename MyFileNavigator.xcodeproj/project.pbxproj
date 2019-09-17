@@ -19,6 +19,9 @@
 		B6500BB3231F271600E43B1A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B6500BB2231F271600E43B1A /* Podfile */; };
 		B6500BB8231F3BED00E43B1A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B6500BB7231F3BED00E43B1A /* .swiftlint.yml */; };
 		B6500BBA231F3C7600E43B1A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B6500BB9231F3C7600E43B1A /* .gitignore */; };
+		B6500BBC231F6FD500E43B1A /* DocumentSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6500BBB231F6FD500E43B1A /* DocumentSaver.swift */; };
+		B6500BBF232288C200E43B1A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6500BBE232288C200E43B1A /* Settings.storyboard */; };
+		B6500BC523228FBC00E43B1A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6500BC423228FBC00E43B1A /* SettingsViewController.swift */; };
 		B6DCF4CB23151CF5006EE0D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCF4CA23151CF5006EE0D8 /* AppDelegate.swift */; };
 		B6DCF4D023151CF5006EE0D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6DCF4CE23151CF5006EE0D8 /* Main.storyboard */; };
 		B6DCF4D223151CF7006EE0D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6DCF4D123151CF7006EE0D8 /* Assets.xcassets */; };
@@ -40,6 +43,9 @@
 		B6500BB2231F271600E43B1A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B6500BB7231F3BED00E43B1A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B6500BB9231F3C7600E43B1A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B6500BBB231F6FD500E43B1A /* DocumentSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSaver.swift; sourceTree = "<group>"; };
+		B6500BBE232288C200E43B1A /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		B6500BC423228FBC00E43B1A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B6DCF4C723151CF5006EE0D8 /* MyFileNavigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFileNavigator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6DCF4CA23151CF5006EE0D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6DCF4CF23151CF5006EE0D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				B6500B9C2315228F00E43B1A /* DocumentsViewController.swift */,
+				B6500BBB231F6FD500E43B1A /* DocumentSaver.swift */,
 				B6500B9E231525C900E43B1A /* DocumentTableViewCell.swift */,
 				B6500BA1231526DC00E43B1A /* Document.swift */,
 				B6500BAC23157BBC00E43B1A /* Documents.storyboard */,
@@ -88,6 +95,15 @@
 				B6500BAE23157CE200E43B1A /* Upload.storyboard */,
 			);
 			path = Upload;
+			sourceTree = "<group>";
+		};
+		B6500BBD232288A900E43B1A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B6500BBE232288C200E43B1A /* Settings.storyboard */,
+				B6500BC423228FBC00E43B1A /* SettingsViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		B6DCF4BE23151CF5006EE0D8 = {
@@ -114,6 +130,7 @@
 		B6DCF4C923151CF5006EE0D8 /* MyFileNavigator */ = {
 			isa = PBXGroup;
 			children = (
+				B6500BBD232288A900E43B1A /* Settings */,
 				B6500BA52315290700E43B1A /* Upload */,
 				B6500BA0231526BD00E43B1A /* Documents */,
 				B6DCF4CA23151CF5006EE0D8 /* AppDelegate.swift */,
@@ -194,6 +211,7 @@
 				B6500BB3231F271600E43B1A /* Podfile in Resources */,
 				B6500BBA231F3C7600E43B1A /* .gitignore in Resources */,
 				B6DCF4D023151CF5006EE0D8 /* Main.storyboard in Resources */,
+				B6500BBF232288C200E43B1A /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +266,8 @@
 			files = (
 				B6500BAB2315295000E43B1A /* Upload.swift in Sources */,
 				B6500BA2231526DC00E43B1A /* Document.swift in Sources */,
+				B6500BBC231F6FD500E43B1A /* DocumentSaver.swift in Sources */,
+				B6500BC523228FBC00E43B1A /* SettingsViewController.swift in Sources */,
 				B6500BA92315294400E43B1A /* UploadViewController.swift in Sources */,
 				B6500B9D2315228F00E43B1A /* DocumentsViewController.swift in Sources */,
 				B6500B9F231525C900E43B1A /* DocumentTableViewCell.swift in Sources */,

@@ -7,15 +7,22 @@
 //
 
 import UIKit
+import QuickLook
 
 class DocumentsViewController: UIViewController {
-    var documents = [
-        Document(name: "Doc 1"),
-        Document(name: "Doc 2"),
-        Document(name: "Doc 3"),
-        Document(name: "Doc 4"),
-    ]
-
+    @IBOutlet weak var tableView: UITableView!
+    
+    var documents = [Document]()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let documents = try? DocumentSaver.get() {
+            self.documents = documents.filter([.downloaded])
+        }
+        
+        tableView.reloadData()
+    }
 }
 
 extension DocumentsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -24,10 +31,40 @@ extension DocumentsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DownloadsTableViewCellIdentifier", for: indexPath) as! DocumentTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: DocumentTableViewCell.identifier, for: indexPath) as! DocumentTableViewCell
         
         cell.configure(with: documents[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let qlvc = QLPreviewController()
+        qlvc.delegate = self
+        qlvc.dataSource = self
+        qlvc.view.backgroundColor = .black
+        qlvc.currentPreviewItemIndex = indexPath.row
+        present(qlvc, animated: true, completion: nil)
+    }
+}
+
+extension DocumentsViewController: QLPreviewControllerDelegate, QLPreviewControllerDataSource {
+    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
+        return documents.count
+    }
+    
+    func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
+        let document = documents[index]
+        let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(document.name)
+        
+        do {
+            try document.data?.write(to: tempURL)
+        } catch {
+            // do nothing
+        }
+        
+        return tempURL as QLPreviewItem
     }
 }
