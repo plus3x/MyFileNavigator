@@ -22,6 +22,7 @@
 		B6500BBC231F6FD500E43B1A /* DocumentSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6500BBB231F6FD500E43B1A /* DocumentSaver.swift */; };
 		B6500BBF232288C200E43B1A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6500BBE232288C200E43B1A /* Settings.storyboard */; };
 		B6500BC523228FBC00E43B1A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6500BC423228FBC00E43B1A /* SettingsViewController.swift */; };
+		B69D9B7D2330BCB30044350C /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D9B7C2330BCB30044350C /* Notification.Name.swift */; };
 		B6DCF4CB23151CF5006EE0D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCF4CA23151CF5006EE0D8 /* AppDelegate.swift */; };
 		B6DCF4D023151CF5006EE0D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6DCF4CE23151CF5006EE0D8 /* Main.storyboard */; };
 		B6DCF4D223151CF7006EE0D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6DCF4D123151CF7006EE0D8 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		B6500BBB231F6FD500E43B1A /* DocumentSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSaver.swift; sourceTree = "<group>"; };
 		B6500BBE232288C200E43B1A /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		B6500BC423228FBC00E43B1A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B69D9B7C2330BCB30044350C /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
 		B6DCF4C723151CF5006EE0D8 /* MyFileNavigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFileNavigator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6DCF4CA23151CF5006EE0D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6DCF4CF23151CF5006EE0D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		B69D9B7B2330BC930044350C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B69D9B7C2330BCB30044350C /* Notification.Name.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B6DCF4BE23151CF5006EE0D8 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +140,7 @@
 		B6DCF4C923151CF5006EE0D8 /* MyFileNavigator */ = {
 			isa = PBXGroup;
 			children = (
+				B69D9B7B2330BC930044350C /* Extensions */,
 				B6500BBD232288A900E43B1A /* Settings */,
 				B6500BA52315290700E43B1A /* Upload */,
 				B6500BA0231526BD00E43B1A /* Documents */,
@@ -270,6 +281,7 @@
 				B6500BC523228FBC00E43B1A /* SettingsViewController.swift in Sources */,
 				B6500BA92315294400E43B1A /* UploadViewController.swift in Sources */,
 				B6500B9D2315228F00E43B1A /* DocumentsViewController.swift in Sources */,
+				B69D9B7D2330BCB30044350C /* Notification.Name.swift in Sources */,
 				B6500B9F231525C900E43B1A /* DocumentTableViewCell.swift in Sources */,
 				B6500BA72315292B00E43B1A /* UploadTableViewCell.swift in Sources */,
 				B6DCF4CB23151CF5006EE0D8 /* AppDelegate.swift in Sources */,

@@ -83,10 +83,9 @@ extension UploadViewController: UITableViewDelegate, UITableViewDataSource {
             
             if let data = try? Data(contentsOf: url) {
                 self.update(document, in: cell, with: .downloaded, and: nil, and: data)
-                self.notify(with: "\(document.name) successfuly downloaded!")
+                NotificationCenter.default.post(name: .fileUploaded, object: document)
             } else {
                 self.update(document, in: cell, with: .downloadable)
-                self.notify(with: "\(document.name) something went wrong!")
             }
             
             self.reloadDocuments()
@@ -127,9 +126,5 @@ extension UploadViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         DocumentSaver.save(document)
-    }
-    
-    private func notify(with object: String) {
-        NotificationCenter.default.post(name: .init("MyFileNavigator"), object: object)
     }
 }

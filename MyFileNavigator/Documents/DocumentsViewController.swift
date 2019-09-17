@@ -23,6 +23,24 @@ class DocumentsViewController: UIViewController {
         
         tableView.reloadData()
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(fileDidUpload(_:)), name: .fileUploaded, object: nil)
+    }
+    
+    @objc private func fileDidUpload(_ notification: Notification) {
+        if let document = notification.object as? Document {
+            documents.append(document)
+            
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.tableView.reloadData()
+                })
+            }
+        }
+    }
 }
 
 extension DocumentsViewController: UITableViewDelegate, UITableViewDataSource {
