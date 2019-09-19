@@ -27,6 +27,7 @@
 		B69D9B81233114DE0044350C /* Gemfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = B69D9B80233114DE0044350C /* Gemfile.lock */; };
 		B69D9B8323314A790044350C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D9B8223314A790044350C /* Settings.swift */; };
 		B69D9B8723318CD70044350C /* DocumentPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D9B8623318CD70044350C /* DocumentPreviewController.swift */; };
+		B69D9B8A23339EE20044350C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B69D9B8923339EE20044350C /* README.md */; };
 		B6DCF4CB23151CF5006EE0D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCF4CA23151CF5006EE0D8 /* AppDelegate.swift */; };
 		B6DCF4D023151CF5006EE0D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6DCF4CE23151CF5006EE0D8 /* Main.storyboard */; };
 		B6DCF4D223151CF7006EE0D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6DCF4D123151CF7006EE0D8 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		B69D9B80233114DE0044350C /* Gemfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
 		B69D9B8223314A790044350C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B69D9B8623318CD70044350C /* DocumentPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPreviewController.swift; sourceTree = "<group>"; };
+		B69D9B8923339EE20044350C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B6DCF4C723151CF5006EE0D8 /* MyFileNavigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFileNavigator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6DCF4CA23151CF5006EE0D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6DCF4CF23151CF5006EE0D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				B6500BB0231F265300E43B1A /* Gemfile */,
 				B6500BB2231F271600E43B1A /* Podfile */,
 				B69D9B7E233114B80044350C /* Podfile.lock */,
+				B69D9B8923339EE20044350C /* README.md */,
 				B6DCF4C923151CF5006EE0D8 /* MyFileNavigator */,
 				B6DCF4C823151CF5006EE0D8 /* Products */,
 				30EBAEFDA37C1F6ED9DF412C /* Pods */,
@@ -229,6 +232,7 @@
 				B6500BB8231F3BED00E43B1A /* .swiftlint.yml in Resources */,
 				B6500BB1231F265300E43B1A /* Gemfile in Resources */,
 				B6500BAF23157CE200E43B1A /* Upload.storyboard in Resources */,
+				B69D9B8A23339EE20044350C /* README.md in Resources */,
 				B6DCF4D523151CF7006EE0D8 /* LaunchScreen.storyboard in Resources */,
 				B6500BAD23157BBC00E43B1A /* Documents.storyboard in Resources */,
 				B6DCF4D223151CF7006EE0D8 /* Assets.xcassets in Resources */,

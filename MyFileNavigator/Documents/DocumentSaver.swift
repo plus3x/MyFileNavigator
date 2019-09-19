@@ -12,6 +12,18 @@ class DocumentSaver {
     static let mainKey = "Documents"
     
     static func cleanAll() {
+        guard let documents = try? get() else { return }
+        
+        documents.forEach { document in
+            if let filePath = document.filePath {
+                do {
+                    try FileManager.default.removeItem(at: filePath)
+                } catch {
+                    // do nothing
+                }
+            }
+        }
+        
         UserDefaults.standard.removeObject(forKey: mainKey)
     }
     
