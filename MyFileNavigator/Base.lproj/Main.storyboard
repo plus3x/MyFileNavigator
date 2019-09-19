@@ -12,7 +12,7 @@
         <!--Documents-->
         <scene sceneID="fbg-Cv-cbH">
             <objects>
-                <viewControllerPlaceholder storyboardName="Documents" id="U70-Vg-vcG" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Documents" bundleIdentifier="Documents" id="U70-Vg-vcG" userLabel="Documents" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="m1d-4S-cUO"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hao-sc-ub3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -43,11 +43,12 @@
         <scene sceneID="2dP-5s-W2Q">
             <objects>
                 <tabBarController id="KaE-op-vKj" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="2mc-ZD-2Ik">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="2mc-ZD-2Ik">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.054403298851197102" green="0.054403298851197102" blue="0.054403298851197102" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>

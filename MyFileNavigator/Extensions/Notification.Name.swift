@@ -9,5 +9,6 @@
 import Foundation
 
 extension Notification.Name {
-    static let fileUploaded = Notification.Name("FileUploaded")
+    static let didFileUpload = Notification.Name("didFileUpload")
+    static let didFileUploadAborted = Notification.Name("didFileUploadAborted")
 }

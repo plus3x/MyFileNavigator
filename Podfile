@@ -6,5 +6,5 @@ platform :ios, '12.4'
 inhibit_all_warnings!
 
 target 'MyFileNavigator' do
-  pod 'SwiftLint'
+    pod 'SwiftLint'
 end

@@ -17,28 +17,35 @@ class DocumentsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let documents = try? DocumentSaver.get() {
+        DispatchQueue.main.async {
+            guard let documents = try? DocumentSaver.get() else { return }
+            
             self.documents = documents.filter([.downloaded])
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
-        
-        tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(fileDidUpload(_:)), name: .fileUploaded, object: nil)
+        let ncd = NotificationCenter.default
+        ncd.addObserver(self, selector: #selector(didFileUpload(_:)), name: .didFileUpload, object: nil)
     }
     
-    @objc private func fileDidUpload(_ notification: Notification) {
-        if let document = notification.object as? Document {
-            documents.append(document)
-            
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.tableView.reloadData()
-                })
-            }
+    @objc private func didFileUpload(_ notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String: Any],
+              let document = userInfo["document"] as? Document else {
+            return
+        }
+        
+        documents.append(document)
+        
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: self.documents.count - 1, section: 0)
+            self.tableView.insertRows(at: [indexPath], with: .automatic)
         }
     }
 }
@@ -59,30 +66,9 @@ extension DocumentsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let qlvc = QLPreviewController()
-        qlvc.delegate = self
-        qlvc.dataSource = self
-        qlvc.view.backgroundColor = .black
+        let qlvc = DocumentPreviewController()
+        qlvc.documents = documents
         qlvc.currentPreviewItemIndex = indexPath.row
         present(qlvc, animated: true, completion: nil)
-    }
-}
-
-extension DocumentsViewController: QLPreviewControllerDelegate, QLPreviewControllerDataSource {
-    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
-        return documents.count
-    }
-    
-    func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
-        let document = documents[index]
-        let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(document.name)
-        
-        do {
-            try document.data?.write(to: tempURL)
-        } catch {
-            // do nothing
-        }
-        
-        return tempURL as QLPreviewItem
     }
 }

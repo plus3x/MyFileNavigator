@@ -20,13 +20,12 @@ class UploadTableViewCell: UITableViewCell {
         self.document = document
         
         uploadLabel.text = document.name
-        progressBar.observedProgress = document.progress
         
-        switch document.state {
-        case .downloadable, .downloaded:
-            progressBar.isHidden = true
-        case .downloading:
+        if document.state == .downloading, document.progress != nil {
+            progressBar.observedProgress = document.progress
             progressBar.isHidden = false
+        } else {
+            progressBar.isHidden = true
         }
     }
 }

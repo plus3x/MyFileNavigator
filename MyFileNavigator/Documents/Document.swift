@@ -21,30 +21,39 @@ class Document: NSObject, NSCoding {
     
     let name: String
     let url: String
-    var data: Data?
+    var filePath: URL?
     var progress: Progress?
     var state: State = .downloadable
+    var taskIdentifier: Int?
     
     init(name: String,
          url: String,
-         data: Data? = nil,
+         filePath: URL? = nil,
          progress: Progress? = nil,
-         state: State = .downloadable) {
+         state: State = .downloadable,
+         taskIdentifier: Int? = nil) {
         self.name = name
         self.url = url
-        self.data = data
+        self.filePath = filePath
         self.progress = progress
         self.state = state
+        self.taskIdentifier = taskIdentifier
     }
     
     required convenience init(coder aDecoder: NSCoder) {
         let name = aDecoder.decodeObject(forKey: "name") as! String
         let url = aDecoder.decodeObject(forKey: "url") as! String
-        let data = aDecoder.decodeObject(forKey: "data") as? Data
-        let progress = aDecoder.decodeObject(forKey: "progress") as? Progress
+        let filePath = aDecoder.decodeObject(forKey: "filePath") as? URL
+        let taskIdentifier = aDecoder.decodeObject(forKey: "taskIdentifier") as? Int
         let state = Document.encodeState(coder: aDecoder)
         
-        self.init(name: name, url: url, data: data, progress: progress, state: state)
+        self.init(
+            name: name,
+            url: url,
+            filePath: filePath,
+            state: state,
+            taskIdentifier: taskIdentifier
+        )
     }
     
     private static func encodeState(coder aDecoder: NSCoder) -> State {
@@ -56,8 +65,15 @@ class Document: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: "name")
         aCoder.encode(url, forKey: "url")
-        aCoder.encode(data, forKey: "data")
-//        aCoder.encode(progress, forKey: "progress")
+        aCoder.encode(filePath, forKey: "filePath")
+        aCoder.encode(taskIdentifier, forKey: "taskIdentifier")
         aCoder.encode(state.rawValue, forKey: "stateRawValue")
+    }
+    
+    func update(with document: Document) {
+        filePath = document.filePath
+        progress = document.progress
+        state = document.state
+        taskIdentifier = document.taskIdentifier
     }
 }

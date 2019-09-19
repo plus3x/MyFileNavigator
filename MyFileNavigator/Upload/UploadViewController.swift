@@ -28,32 +28,102 @@ class UploadViewController: UIViewController {
             name: "Mov file example.mov",
             url: "https://file-examples.com/wp-content/uploads/2018/04/file_example_MOV_1920_2_2MB.mov"
         ),
+        Document(
+            name: "Fender Stratocaster.usdz",
+            url: "https://developer.apple.com/augmented-reality/quick-look/models/stratocaster/fender_stratocaster.usdz"
+        )
     ]
     var documents = [Document]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        reloadDocuments()
+        DispatchQueue.global(qos: .background).async {
+            self.reloadDocuments()
+            
+            if let allDocuments = try? DocumentSaver.get(), allDocuments.count == 0 {
+                self.preparedDocuments.forEach(DocumentSaver.save)
+                self.reloadDocuments()
+            }
+            
+            DispatchQueue.main.async {
+                self.reloadTableViewWithAnimation()
+            }
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        if let allDocuments = try? DocumentSaver.get(), allDocuments.count == 0 {
-            preparedDocuments.forEach(DocumentSaver.save)
-            reloadDocuments()
+        tableView.estimatedRowHeight = 60
+        tableView.rowHeight = UITableView.automaticDimension
+        
+        let ncd = NotificationCenter.default
+        ncd.addObserver(self, selector: #selector(didFileUpload(_:)), name: .didFileUpload, object: nil)
+        ncd.addObserver(self, selector: #selector(didFileUploadAborted(_:)), name: .didFileUploadAborted, object: nil)
+    }
+    
+    @objc private func didFileUpload(_ notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String: Any],
+              let document = userInfo["document"] as? Document,
+              let index = documents.firstIndex(where: { $0.name == document.name }) else {
+            return
         }
         
-        tableView.reloadData()
+        let indexPath = IndexPath(row: index, section: 0)
+        
+        DispatchQueue.main.async {
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    @objc private func didFileUploadAborted(_ notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String: Any],
+              let document = userInfo["document"] as? Document,
+              let index = documents.firstIndex(where: { $0.name == document.name }) else {
+            return
+        }
+        
+        let indexPath = IndexPath(row: index, section: 0)
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
     }
     
     private func reloadDocuments() {
-        if let documents = try? DocumentSaver.get() {
-            self.documents = documents.filter([.downloadable, .downloading])
+        guard let documents = try? DocumentSaver.get() else { return }
+        
+        self.documents = documents.filter([.downloadable, .downloading])
+        
+        if Settings.uploadingType == .urlSessionDataTask {
+            URLSession.shared.getAllTasks { tasks in
+                self.documents.enumerated().forEach { index, document in
+                    guard let task = tasks.first(where: { $0.taskIdentifier == document.taskIdentifier }) else { return }
+                    
+                    document.progress = task.progress
+                    let indexPath = IndexPath(row: index, section: 0)
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                    }
+                }
+            }
         }
+    }
+    
+    private func reloadTableViewWithAnimation() {
+        tableView.reloadSections(NSMutableIndexSet(index: 0) as IndexSet, with: .automatic)
     }
 }
 
 extension UploadViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return documents.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -68,63 +138,67 @@ extension UploadViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        uploadDocument(from: tableView, at: indexPath)
+    }
+    
+    private func uploadDocument(from tableView: UITableView, at indexPath: IndexPath) {
         let document = documents[indexPath.row]
         
         guard document.state == .downloadable else { return }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: UploadTableViewCell.identifier, for: indexPath) as! UploadTableViewCell
-        
-        update(document, in: cell, with: .downloading)
-        
-        reloadDocuments()
-        
-        DispatchQueue(label: "\(document.name) downloading").async {
-            let url = URL(string: document.url)!
-            
-            if let data = try? Data(contentsOf: url) {
-                self.update(document, in: cell, with: .downloaded, and: nil, and: data)
-                NotificationCenter.default.post(name: .fileUploaded, object: document)
+        let ncd = NotificationCenter.default
+        let task = upload(document, success: { data in
+            if self.update(document, with: .downloaded, and: nil, and: data) {
+                ncd.post(name: .didFileUpload, object: nil, userInfo: ["document": document])
+                self.reloadDocuments()
             } else {
-                self.update(document, in: cell, with: .downloadable)
+                _ = self.update(document, with: .downloadable)
+                ncd.post(name: .didFileUploadAborted, object: nil, userInfo: ["document": document])
             }
-            
+        }, failure: {
+            _ = self.update(document, with: .downloadable)
+            ncd.post(name: .didFileUploadAborted, object: nil, userInfo: ["document": document])
             self.reloadDocuments()
-            
-            DispatchQueue.main.async {
-                tableView.reloadData()
-            }
-        }
+        })
         
-//        // Looks much more interested, can use middle state and progress bar, but no have success
-//        let task = URLSession.shared.dataTask(with: url) { data, _, error in
-//            if let error = error {
-//                self.update(document, in: cell, with: .downloadable, and: nil)
-//                self.notify(with: "Uploading failed by reason: \"\(error)\"")
-//            } else if let data = data {
-//                self.update(document, in: cell, with: .downloaded, and: nil, and: data)
-//                self.notify(with: "Uploading successfuls")
-//            }
-//            tableView.reloadRows(at: [indexPath], with: .automatic)
-//        }
-//
-//        URLSession.shared.getAllTasks { tasks in
-//            _ = tasks.first { $0.taskIdentifier == task.taskIdentifier }
-//        }
-//
-//        update(document, in: cell, with: .downloading, and: task.progress)
-//
-//        task.resume()
+        _ = update(document, with: .downloading, and: task)
+        reloadDocuments()
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
-    private func update(_ document: Document, in cell: UploadTableViewCell, with state: Document.State, and progress: Progress? = nil, and data: Data? = nil) {
-        document.state = state
-//        document.progress = progress
-        document.data = data
+    private func upload(_ document: Document, success: @escaping (Data) -> Void, failure: @escaping () -> Void) -> URLSessionDataTask? {
+        let url = URL(string: document.url)!
         
-        DispatchQueue.main.async {
-            cell.configure(with: document)
+        switch Settings.uploadingType {
+        case .dataContentOf:
+            DispatchQueue.global(qos: .background).async {
+                if let data = try? Data(contentsOf: url) {
+                    success(data)
+                } else {
+                    failure()
+                }
+            }
+            
+            return nil
+        case .urlSessionDataTask:
+            let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+                if let data = data {
+                    success(data)
+                } else {
+                    failure()
+                }
+            }
+            
+            task.resume()
+            
+            return task
         }
+    }
+    
+    private func update(_ document: Document, with state: Document.State, and task: URLSessionDataTask? = nil, and data: Data? = nil) -> Bool {
+        document.state = state
+        document.taskIdentifier = task?.taskIdentifier
         
-        DocumentSaver.save(document)
+        return DocumentSaver.save(document, with: data)
     }
 }

@@ -23,6 +23,10 @@
 		B6500BBF232288C200E43B1A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6500BBE232288C200E43B1A /* Settings.storyboard */; };
 		B6500BC523228FBC00E43B1A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6500BC423228FBC00E43B1A /* SettingsViewController.swift */; };
 		B69D9B7D2330BCB30044350C /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D9B7C2330BCB30044350C /* Notification.Name.swift */; };
+		B69D9B7F233114B80044350C /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = B69D9B7E233114B80044350C /* Podfile.lock */; };
+		B69D9B81233114DE0044350C /* Gemfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = B69D9B80233114DE0044350C /* Gemfile.lock */; };
+		B69D9B8323314A790044350C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D9B8223314A790044350C /* Settings.swift */; };
+		B69D9B8723318CD70044350C /* DocumentPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D9B8623318CD70044350C /* DocumentPreviewController.swift */; };
 		B6DCF4CB23151CF5006EE0D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCF4CA23151CF5006EE0D8 /* AppDelegate.swift */; };
 		B6DCF4D023151CF5006EE0D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6DCF4CE23151CF5006EE0D8 /* Main.storyboard */; };
 		B6DCF4D223151CF7006EE0D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6DCF4D123151CF7006EE0D8 /* Assets.xcassets */; };
@@ -48,6 +52,10 @@
 		B6500BBE232288C200E43B1A /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		B6500BC423228FBC00E43B1A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B69D9B7C2330BCB30044350C /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
+		B69D9B7E233114B80044350C /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
+		B69D9B80233114DE0044350C /* Gemfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
+		B69D9B8223314A790044350C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		B69D9B8623318CD70044350C /* DocumentPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPreviewController.swift; sourceTree = "<group>"; };
 		B6DCF4C723151CF5006EE0D8 /* MyFileNavigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFileNavigator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6DCF4CA23151CF5006EE0D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6DCF4CF23151CF5006EE0D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +92,7 @@
 				B6500B9E231525C900E43B1A /* DocumentTableViewCell.swift */,
 				B6500BA1231526DC00E43B1A /* Document.swift */,
 				B6500BAC23157BBC00E43B1A /* Documents.storyboard */,
+				B69D9B8623318CD70044350C /* DocumentPreviewController.swift */,
 			);
 			path = Documents;
 			sourceTree = "<group>";
@@ -104,6 +113,7 @@
 			children = (
 				B6500BBE232288C200E43B1A /* Settings.storyboard */,
 				B6500BC423228FBC00E43B1A /* SettingsViewController.swift */,
+				B69D9B8223314A790044350C /* Settings.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -121,8 +131,10 @@
 			children = (
 				B6500BB7231F3BED00E43B1A /* .swiftlint.yml */,
 				B6500BB9231F3C7600E43B1A /* .gitignore */,
+				B69D9B80233114DE0044350C /* Gemfile.lock */,
 				B6500BB0231F265300E43B1A /* Gemfile */,
 				B6500BB2231F271600E43B1A /* Podfile */,
+				B69D9B7E233114B80044350C /* Podfile.lock */,
 				B6DCF4C923151CF5006EE0D8 /* MyFileNavigator */,
 				B6DCF4C823151CF5006EE0D8 /* Products */,
 				30EBAEFDA37C1F6ED9DF412C /* Pods */,
@@ -213,12 +225,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B69D9B81233114DE0044350C /* Gemfile.lock in Resources */,
 				B6500BB8231F3BED00E43B1A /* .swiftlint.yml in Resources */,
 				B6500BB1231F265300E43B1A /* Gemfile in Resources */,
 				B6500BAF23157CE200E43B1A /* Upload.storyboard in Resources */,
 				B6DCF4D523151CF7006EE0D8 /* LaunchScreen.storyboard in Resources */,
 				B6500BAD23157BBC00E43B1A /* Documents.storyboard in Resources */,
 				B6DCF4D223151CF7006EE0D8 /* Assets.xcassets in Resources */,
+				B69D9B7F233114B80044350C /* Podfile.lock in Resources */,
 				B6500BB3231F271600E43B1A /* Podfile in Resources */,
 				B6500BBA231F3C7600E43B1A /* .gitignore in Resources */,
 				B6DCF4D023151CF5006EE0D8 /* Main.storyboard in Resources */,
@@ -284,7 +298,9 @@
 				B69D9B7D2330BCB30044350C /* Notification.Name.swift in Sources */,
 				B6500B9F231525C900E43B1A /* DocumentTableViewCell.swift in Sources */,
 				B6500BA72315292B00E43B1A /* UploadTableViewCell.swift in Sources */,
+				B69D9B8323314A790044350C /* Settings.swift in Sources */,
 				B6DCF4CB23151CF5006EE0D8 /* AppDelegate.swift in Sources */,
+				B69D9B8723318CD70044350C /* DocumentPreviewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
